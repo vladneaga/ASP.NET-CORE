@@ -1,0 +1,22 @@
+﻿@model List<DogViewModel> 
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<ul>
+    @foreach(var dog in @Model )
+    {
+        <li>@dog.Name (@dog.Age )
+            <form asp-asp-controller="Home" asp-action="Remove" method="post">
+            <div class="mb-3">
+                    <input type="hidden" name="Name" value="@dog.Name" />
+                    <button type="submit">Delete</button>
+            </div>
+                </form>
+        </li>
+    }
+</ul>
